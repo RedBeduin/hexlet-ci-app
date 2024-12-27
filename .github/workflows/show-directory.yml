@@ -1,14 +1,20 @@
 name: show-directory
 on: push
 jobs:
-  
   build:
-    
     runs-on: ubuntu-latest
     steps: 
-      
-      
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+
+      - run: npm install
+
+      - run: npm run lint
       
-      
-      - run: make setup, make test, make lint
+      - name: add make setup 
+        run: make setup 
+      - name: add make test  
+        run: make test 
+      - name: add make lint   
+        run: make lint
